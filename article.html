@@ -1,0 +1,792 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+
+<div class="rg-nba-fines-article">
+
+<style>
+  .rg-nba-fines-article *,
+  .rg-nba-fines-article *::before,
+  .rg-nba-fines-article *::after { box-sizing: border-box; }
+
+  .rg-nba-fines-article {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #1a1a1a;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background: #fff;
+  }
+
+  .rg-nba-fines-article .rg-kicker {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #F5A623;
+    margin: 36px 0 10px;
+  }
+
+  .rg-nba-fines-article .rg-byline {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .rg-nba-fines-article h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #1E2433;
+    margin: 48px 0 16px;
+    padding-left: 16px;
+    border-left: 4px solid #F5A623;
+  }
+
+  /* TEAM ENTRY HEADER */
+  .rg-nba-fines-article .rg-entry-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 40px 0 4px;
+  }
+
+  .rg-nba-fines-article .rg-rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: #2E3548;
+    color: #fff;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .rg-nba-fines-article .rg-rank--gold { background: #F5A623; color: #1E2433; }
+
+  .rg-nba-fines-article .rg-team-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .rg-nba-fines-article .rg-entry-header h3 {
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #1E2433;
+    margin: 0;
+  }
+
+  .rg-nba-fines-article .rg-entry-details {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+    margin: 0 0 14px;
+    padding-left: 60px;
+  }
+
+  .rg-nba-fines-article p { margin: 0 0 18px; }
+
+  /* PILLS */
+  .rg-nba-fines-article .rg-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 32px;
+  }
+
+  .rg-nba-fines-article .rg-pill {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #f4f5f7;
+    color: #1E2433;
+    border: 1px solid #e0e0e0;
+  }
+
+  .rg-nba-fines-article .rg-pill--accent {
+    background: #F5A623;
+    color: #1E2433;
+    border-color: #F5A623;
+  }
+
+  /* KEY FINDINGS */
+  .rg-nba-fines-article .rg-findings {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 32px;
+  }
+
+  .rg-nba-fines-article .rg-findings li {
+    padding: 14px 0 14px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .rg-nba-fines-article .rg-findings li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #F5A623;
+  }
+
+  .rg-nba-fines-article .rg-findings li:first-child { border-top: 1px solid #f0f0f0; }
+
+  /* EMBED */
+  .rg-nba-fines-article .rg-embed {
+    border: 1px solid #2E3548;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 32px 0;
+  }
+
+  .rg-nba-fines-article .rg-embed iframe {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+
+  /* TABLES */
+  .rg-nba-fines-article .rg-table-wrap {
+    overflow-x: auto;
+    margin: 20px 0 28px;
+  }
+
+  .rg-nba-fines-article table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+  }
+
+  .rg-nba-fines-article thead tr { background: #1E2433; color: #fff; }
+
+  .rg-nba-fines-article thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .rg-nba-fines-article tbody tr:nth-child(even) { background: #f8f8f8; }
+
+  .rg-nba-fines-article tbody td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .rg-nba-fines-article tbody td.rg-td--accent {
+    color: #c47f0a;
+    font-weight: 700;
+  }
+
+  /* PLAYER TABLE logo cell */
+  .rg-nba-fines-article .rg-player-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  .rg-nba-fines-article .rg-td-team {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* EXPERT */
+  .rg-nba-fines-article .rg-expert {
+    background: #1E2433;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 40px 0;
+  }
+
+  .rg-nba-fines-article .rg-expert blockquote {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .rg-nba-fines-article .rg-expert blockquote p {
+    color: #e8e8e8;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .rg-nba-fines-article .rg-expert blockquote p:last-of-type {
+    color: #F5A623;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  .rg-nba-fines-article .rg-expert-attribution {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    margin: 0;
+    font-style: normal;
+  }
+
+  /* CONCLUSION */
+  .rg-nba-fines-article .rg-closer {
+    font-style: italic;
+    color: #555;
+    font-size: 17px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+
+  /* METHODOLOGY */
+  .rg-nba-fines-article .rg-methodology {
+    background: #f8f9fa;
+    border-left: 4px solid #2E3548;
+    border-radius: 0 8px 8px 0;
+    padding: 24px 28px;
+    margin: 40px 0;
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #444;
+  }
+
+  .rg-nba-fines-article .rg-methodology h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #F5A623;
+    margin: 0 0 12px;
+  }
+
+  .rg-nba-fines-article .rg-methodology p { font-size: 13px; margin: 0 0 8px; }
+  .rg-nba-fines-article .rg-methodology p:last-child { margin: 0; }
+
+  /* SOURCES */
+  .rg-nba-fines-article .rg-sources {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: #666;
+    margin: 24px 0 40px;
+  }
+
+  .rg-nba-fines-article .rg-sources h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 0 0 10px;
+  }
+
+  .rg-nba-fines-article .rg-sources ul { margin: 0; padding-left: 18px; }
+  .rg-nba-fines-article .rg-sources li { margin-bottom: 5px; }
+
+  .rg-nba-fines-article hr {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+    margin: 40px 0;
+  }
+
+  @media (max-width: 600px) {
+    .rg-nba-fines-article { font-size: 16px; padding: 0 16px; }
+    .rg-nba-fines-article h2 { font-size: 22px; }
+    .rg-nba-fines-article .rg-expert { padding: 20px; }
+    .rg-nba-fines-article .rg-entry-details { padding-left: 0; }
+  }
+</style>
+
+<!-- KICKER & BYLINE -->
+<p class="rg-kicker">NBA Data Study · 2025-26 Season</p>
+<p class="rg-byline">RotoGrinders Staff · June 2026</p>
+
+<!-- INTRO -->
+<h2>The NBA's $17.6 Million Season</h2>
+
+<p>The NBA collected <strong>$17,606,626</strong> in fines and forfeited salaries in 2025-26 — 946 infractions across all 30 teams, up 17.4% from the prior year. One player accounts for two-thirds of that total. The rest of the league still had plenty to say.</p>
+
+<p>For lineup builders, what matters isn't the dollar figure — it's what suspension windows, repeat offenders, and brawl-night rotations did to projections. This study maps every infraction across the full season so you know which teams ran volatile and which ran clean.</p>
+
+<!-- KEY FINDINGS -->
+<h2>Key Findings</h2>
+
+<ul class="rg-findings">
+  <li><strong>Philadelphia led all teams at $11,885,293</strong> — Paul George's 25-game PED suspension is $11,742,293 of it, the largest individual penalty in the dataset.</li>
+  <li><strong>Detroit logged the most infractions of any team (67)</strong> and finished second in dollars at $958,561, driven by Isaiah Stewart's 7-game suspension and $813,561 in combined penalties.</li>
+  <li><strong>Charlotte's $835,296 was the most concentrated total outside Philly</strong> — Miles Bridges's 4-game fight suspension alone is $689,655, over 82% of the team's entire bill.</li>
+  <li><strong>The league total rose 17.4% year-over-year</strong>, driven by costly suspensions rather than routine tech foul volume.</li>
+  <li><strong>Dillon Brooks set the infraction-count record at 22 separate incidents</strong> — the most of any player this season.</li>
+  <li><strong>Utah, San Antonio, and Portland finished below $45,000</strong> — the cleanest rosters in the league by a wide margin.</li>
+</ul>
+
+<!-- CHART EMBED -->
+<div class="rg-embed">
+  <iframe src="https://aharris-jpg.github.io/fined-nba-teams/chart.html" height="720" scrolling="no" title="Most Fined NBA Teams 2025-26"></iframe>
+</div>
+
+<!-- TOP 10 -->
+<h2>The Top 10 Most Fined NBA Teams of the 2025-26 Season</h2>
+
+<!-- #1 PHI -->
+<div class="rg-entry-header">
+  <span class="rg-rank rg-rank--gold">1</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg" alt="Philadelphia 76ers logo">
+  <h3>Philadelphia 76ers</h3>
+</div>
+<p class="rg-entry-details">Philadelphia, PA · Eastern Conference · $11,885,293</p>
+
+<p>This is a one-player story. Paul George's 25-game PED suspension cost him <strong>$11,742,293</strong> in forfeited salary — 98.8% of Philadelphia's total. Strip it out and the Sixers' remaining $143,000 ranks 28th. The suspension ran from late January through April, cutting across more than 30% of the regular season and reshaping the Sixers' entire rotation for three months.</p>
+
+<p>Tyrese Maxey absorbed the bulk of the offensive load and rewarded DFS players who recognized the shift early. Joel Embiid's usage climbed. The windows were predictable once the suspension was confirmed — the market was slow to adjust.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$11,885,293 total</span>
+  <span class="rg-pill">37 infractions</span>
+  <span class="rg-pill">25 games suspended</span>
+  <span class="rg-pill">10 players fined</span>
+</div>
+
+<!-- pic1 -->
+<div class="rg-embed">
+  <iframe src="https://aharris-jpg.github.io/fined-nba-teams/pic1.html" height="410" scrolling="no" title="Philadelphia 76ers"></iframe>
+</div>
+
+<!-- #2 DET -->
+<div class="rg-entry-header">
+  <span class="rg-rank">2</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg" alt="Detroit Pistons logo">
+  <h3>Detroit Pistons</h3>
+</div>
+<p class="rg-entry-details">Detroit, MI · Eastern Conference · $958,561</p>
+
+<p>No team in the league was more volatile. Detroit's <strong>67 infractions</strong> are the most of any franchise this season, and their $958,561 reflects a roster-wide problem rather than a single bad night. Isaiah Stewart is the headline: a 7-game suspension following a February brawl carried a $724,138 salary hit, bringing his season total to $813,561 across 16 incidents. Jalen Duren added a 2-game suspension and $104,423.</p>
+
+<p>When Stewart and Duren overlapped in absence, Detroit's frontcourt became one of the hardest rotations in the league to project. That chaos was opportunity — if you had the stomach for it.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$958,561 total</span>
+  <span class="rg-pill">67 infractions</span>
+  <span class="rg-pill">9 games suspended</span>
+  <span class="rg-pill">12 players fined</span>
+</div>
+
+<!-- #3 CHA -->
+<div class="rg-entry-header">
+  <span class="rg-rank">3</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg" alt="Charlotte Hornets logo">
+  <h3>Charlotte Hornets</h3>
+</div>
+<p class="rg-entry-details">Charlotte, NC · Eastern Conference · $835,296</p>
+
+<p>One night. One fight. February 11 cost Charlotte <strong>$689,655</strong> when Miles Bridges received a 4-game suspension. That single incident is 82% of the franchise's entire season total. Moussa Diabate was also suspended the same night — both punishments stemmed from the same brawl. Outside of that date, Charlotte ran a fairly quiet operation.</p>
+
+<p>The LaMelo Ball angle is worth noting: $41,000 across four incidents, no suspension impact. He plays with edge, but the edge hasn't crossed the expensive line yet.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$835,296 total</span>
+  <span class="rg-pill">27 infractions</span>
+  <span class="rg-pill">8 games suspended</span>
+  <span class="rg-pill">8 players fined</span>
+</div>
+
+<!-- #4 LAL -->
+<div class="rg-entry-header">
+  <span class="rg-rank">4</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg" alt="Los Angeles Lakers logo">
+  <h3>Los Angeles Lakers</h3>
+</div>
+<p class="rg-entry-details">Los Angeles, CA · Western Conference · $544,190</p>
+
+<p>Luka Doncic generated <strong>$364,366</strong> across 18 infractions, including a 1-game suspension in late March. Marcus Smart added $93,000 across 12 incidents. Together they account for 84% of the Lakers' total. Doncic's 18 logged incidents is the second-highest count for any guard in the dataset — behind only Dillon Brooks.</p>
+
+<p>That March suspension landed on a night where the Lakers were heavy favorites. Any build around Doncic absorbed the full value hit. With a player at 18 incidents, suspension risk isn't hypothetical — it's a scheduling factor.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$544,190 total</span>
+  <span class="rg-pill">53 infractions</span>
+  <span class="rg-pill">2 games suspended</span>
+  <span class="rg-pill">11 players fined</span>
+</div>
+
+<!-- pic2 -->
+<div class="rg-embed">
+  <iframe src="https://aharris-jpg.github.io/fined-nba-teams/pic2.html" height="410" scrolling="no" title="Los Angeles Lakers"></iframe>
+</div>
+
+<!-- #5 MIN -->
+<div class="rg-entry-header">
+  <span class="rg-rank">5</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg" alt="Minnesota Timberwolves logo">
+  <h3>Minnesota Timberwolves</h3>
+</div>
+<p class="rg-entry-details">Minneapolis, MN · Western Conference · $382,149</p>
+
+<p>Rudy Gobert's January flagrant foul suspension cost <strong>$201,149</strong> and defines Minnesota's total, but this roster kept the noise level elevated all season. Naz Reid logged 15 infractions and $70,000 in fines — the highest infraction count of any center in the dataset. Julius Randle added $43,000. Fifty-three incidents across 10 players is a team playing with consistent edge.</p>
+
+<p>Reid is the player to track going forward. Fifteen incidents this season, including multiple ejections. The next escalation step is a suspension — and at his current pace, it is coming.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$382,149 total</span>
+  <span class="rg-pill">53 infractions</span>
+  <span class="rg-pill">1 game suspended</span>
+  <span class="rg-pill">10 players fined</span>
+</div>
+
+<!-- #6 PHX -->
+<div class="rg-entry-header">
+  <span class="rg-rank">6</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg" alt="Phoenix Suns logo">
+  <h3>Phoenix Suns</h3>
+</div>
+<p class="rg-entry-details">Phoenix, AZ · Western Conference · $364,475</p>
+
+<p>Dillon Brooks set the infraction record this season: <strong>22 separate incidents</strong>, $207,403 in fines, one suspension. That is roughly one incident every four games. It is not a streak or a rough patch — it is a behavioral baseline. Devin Booker added $72,000 across 16 incidents, making Phoenix's starting backcourt one of the most fine-prone in the league.</p>
+
+<p>The pattern risk here is real. Phoenix appeared in fine-related news on 52 separate occasions this season. Any slate with a Suns game carries an elevated probability of a Brooks ejection reshaping the rotation mid-game.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$364,475 total</span>
+  <span class="rg-pill">52 infractions</span>
+  <span class="rg-pill">2 games suspended</span>
+  <span class="rg-pill">7 players fined</span>
+</div>
+
+<!-- #7 MEM -->
+<div class="rg-entry-header">
+  <span class="rg-rank">7</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg" alt="Memphis Grizzlies logo">
+  <h3>Memphis Grizzlies</h3>
+</div>
+<p class="rg-entry-details">Memphis, TN · Western Conference · $359,042</p>
+
+<p>Ja Morant's 1-game conduct suspension in early November — conduct detrimental to the team — carried a <strong>$272,042</strong> salary hit before the season was two weeks old. That front-loaded Memphis's total immediately and put Morant under the league's microscope for the rest of the year. He finished with five infractions and $280,042, the seventh-highest individual total in the dataset.</p>
+
+<p>The November suspension window is textbook DFS value. Desmond Bane and Jaren Jackson Jr. both saw usage spikes when Morant was out — the pattern held again this year, and it will hold again next time.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$359,042 total</span>
+  <span class="rg-pill">28 infractions</span>
+  <span class="rg-pill">1 game suspended</span>
+  <span class="rg-pill">12 players fined</span>
+</div>
+
+<!-- #8 SAC -->
+<div class="rg-entry-header">
+  <span class="rg-rank">8</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612758/global/L/logo.svg" alt="Sacramento Kings logo">
+  <h3>Sacramento Kings</h3>
+</div>
+<p class="rg-entry-details">Sacramento, CA · Western Conference · $353,807</p>
+
+<p>Dennis Schröder's 3-game January suspension — striking and kicking — forfeited <strong>$291,807</strong> and accounts for 82% of Sacramento's total. The rest of the roster combined for $62,000 across 26 infractions. This is a clean team that had one ugly week.</p>
+
+<p>Three Schröder-less nights pushed Malik Monk into a larger offensive role. Monk delivered each time. Clean suspension windows with an obvious value beneficiary are the easiest edge in DFS — Sacramento gave you three of them in January.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$353,807 total</span>
+  <span class="rg-pill">29 infractions</span>
+  <span class="rg-pill">3 games suspended</span>
+  <span class="rg-pill">8 players fined</span>
+</div>
+
+<!-- pic3 -->
+<div class="rg-embed">
+  <iframe src="https://aharris-jpg.github.io/fined-nba-teams/pic3.html" height="410" scrolling="no" title="Sacramento Kings"></iframe>
+</div>
+
+<!-- #9 OKC -->
+<div class="rg-entry-header">
+  <span class="rg-rank">9</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612760/global/L/logo.svg" alt="Oklahoma City Thunder logo">
+  <h3>Oklahoma City Thunder</h3>
+</div>
+<p class="rg-entry-details">Oklahoma City, OK · Western Conference · $177,241</p>
+
+<p>A single March brawl put OKC on this list. Three players — Jaylin Williams ($50,000), Cason Wallace ($35,000), and Ajay Mitchell ($35,000) — were fined for entering a fight area on March 22. Mitchell also received a 1-game suspension. Outside of that date, Oklahoma City generated just $57,241 across the remaining season — one of the most disciplined profiles in the league for a team that finished near the top of the Western Conference.</p>
+
+<p>Shai Gilgeous-Alexander recorded just three technicals all year. The Thunder's penalty profile matches their brand: controlled, deliberate, and operating within the rules more than almost anyone else.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$177,241 total</span>
+  <span class="rg-pill">29 infractions</span>
+  <span class="rg-pill">1 game suspended</span>
+  <span class="rg-pill">9 players fined</span>
+</div>
+
+<!-- #10 ORL -->
+<div class="rg-entry-header">
+  <span class="rg-rank">10</span>
+  <img class="rg-team-logo" src="https://cdn.nba.com/logos/nba/1610612753/global/L/logo.svg" alt="Orlando Magic logo">
+  <h3>Orlando Magic</h3>
+</div>
+<p class="rg-entry-details">Orlando, FL · Eastern Conference · $171,000</p>
+
+<p>Orlando's <strong>46 infractions</strong> are the fourth-highest in the league, but no single incident broke the bank. Desmond Bane and Jalen Suggs each logged 10 incidents; Wendell Carter Jr. added 8. This is steady low-level noise rather than brawl damage — tech fouls, ejections, and a handful of escalated conduct fines spread across the season.</p>
+
+<p>Bane's profile deserves a flag: one $35,000 striking fine in December and two ball-into-stands violations totalling $50,000. The league is watching. A repeat in 2026-27 likely carries a suspension, not a fine.</p>
+
+<div class="rg-pills">
+  <span class="rg-pill rg-pill--accent">$171,000 total</span>
+  <span class="rg-pill">46 infractions</span>
+  <span class="rg-pill">0 games suspended</span>
+  <span class="rg-pill">8 players fined</span>
+</div>
+
+<!-- pic4 -->
+<div class="rg-embed">
+  <iframe src="https://aharris-jpg.github.io/fined-nba-teams/pic4.html" height="410" scrolling="no" title="Orlando Magic"></iframe>
+</div>
+
+<hr>
+
+<!-- MOST FINED PLAYERS -->
+<h2>The Most Fined Players of the 2025-26 Season</h2>
+
+<p>Team totals only tell half the story. These are the individual players who cost themselves — and their rotations — the most across the season. Paul George's PED suspension dominates the dollar column, but the players below him are the ones whose behavioral patterns carry forward into 2026-27.</p>
+
+<div class="rg-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Player</th>
+        <th>Team</th>
+        <th>Total Fined</th>
+        <th>Infractions</th>
+        <th>Games Suspended</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Paul George</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg" alt="PHI"> PHI</span></td>
+        <td class="rg-td--accent">$11,746,293</td>
+        <td>3</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Isaiah Stewart</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg" alt="DET"> DET</span></td>
+        <td class="rg-td--accent">$813,561</td>
+        <td>16</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Miles Bridges</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg" alt="CHA"> CHA</span></td>
+        <td class="rg-td--accent">$701,655</td>
+        <td>7</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Luka Doncic</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg" alt="LAL"> LAL</span></td>
+        <td class="rg-td--accent">$364,366</td>
+        <td>18</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Dennis Schröder</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612739/global/L/logo.svg" alt="CLE"> CLE</span></td>
+        <td class="rg-td--accent">$303,807</td>
+        <td>7</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Ja Morant</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg" alt="MEM"> MEM</span></td>
+        <td class="rg-td--accent">$280,042</td>
+        <td>5</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Rudy Gobert</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg" alt="MIN"> MIN</span></td>
+        <td class="rg-td--accent">$218,149</td>
+        <td>9</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Dillon Brooks</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg" alt="PHX"> PHX</span></td>
+        <td class="rg-td--accent">$207,403</td>
+        <td>22</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Jalen Duren</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg" alt="DET"> DET</span></td>
+        <td class="rg-td--accent">$104,423</td>
+        <td>8</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Marcus Smart</td>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg" alt="LAL"> LAL</span></td>
+        <td class="rg-td--accent">$93,000</td>
+        <td>12</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The infraction count column tells a different story than the dollar column. Brooks leads with 22 incidents but ranks eighth in total cost — because most of his penalties were standard technicals rather than salary-forfeiting suspensions. Stewart has 16 incidents and $813,561 because his incidents kept escalating. Doncic has 18 incidents but only one suspension — so far. The gap between infraction count and dollar cost is where future suspension risk lives.</p>
+
+<hr>
+
+<!-- CALLOUT: ONE PLAYER TWO THIRDS -->
+<h2>One Player. Two-Thirds of the League.</h2>
+
+<p>Remove Paul George and the NBA's 2025-26 fines total drops from <strong>$17.6 million to $5.9 million</strong>. Philadelphia falls from first to 28th. The teams that actually ran volatile operations — Detroit, Charlotte, the Lakers, Minnesota — move to the top of a more representative picture.</p>
+
+<div class="rg-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Team</th>
+        <th>Total (as reported)</th>
+        <th>Total (ex. PG suspension)</th>
+        <th>Rank shift</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612755/global/L/logo.svg" alt="PHI"> Philadelphia</span></td>
+        <td class="rg-td--accent">$11,885,293</td>
+        <td>$143,000</td>
+        <td>1st → 28th</td>
+      </tr>
+      <tr>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612765/global/L/logo.svg" alt="DET"> Detroit</span></td>
+        <td>$958,561</td>
+        <td>$958,561</td>
+        <td>2nd → 1st</td>
+      </tr>
+      <tr>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612766/global/L/logo.svg" alt="CHA"> Charlotte</span></td>
+        <td>$835,296</td>
+        <td>$835,296</td>
+        <td>3rd → 2nd</td>
+      </tr>
+      <tr>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg" alt="LAL"> L.A. Lakers</span></td>
+        <td>$544,190</td>
+        <td>$544,190</td>
+        <td>4th → 3rd</td>
+      </tr>
+      <tr>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612750/global/L/logo.svg" alt="MIN"> Minnesota</span></td>
+        <td>$382,149</td>
+        <td>$382,149</td>
+        <td>5th → 4th</td>
+      </tr>
+      <tr>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg" alt="PHX"> Phoenix</span></td>
+        <td>$364,475</td>
+        <td>$364,475</td>
+        <td>6th → 5th</td>
+      </tr>
+      <tr>
+        <td><span class="rg-td-team"><img class="rg-player-logo" src="https://cdn.nba.com/logos/nba/1610612763/global/L/logo.svg" alt="MEM"> Memphis</span></td>
+        <td>$359,042</td>
+        <td>$359,042</td>
+        <td>7th → 6th</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>At the other end: Utah ($22,000), San Antonio ($35,000), and Portland ($44,000). Utah logged just 11 infractions all season — fewer than Detroit averaged per month.</p>
+
+<!-- EXPERT COMMENT -->
+<h2>Expert Comment</h2>
+
+<div class="rg-expert">
+  <blockquote>
+    <p>"The Paul George number is an anomaly. Detroit is not. Sixty-seven infractions, two suspensions, two of the three most penalized centers in the league on the same roster — that's a chronically volatile team, not an unlucky one. Volatility creates opportunity if you know when to lean in."</p>
+
+    <p>"Dillon Brooks logged 22 infractions this season. That's not a bad stretch — that's a pace of one incident every four games. Any slate with a Phoenix game carries a real probability of a Brooks ejection shifting the next rotation decision. Build it into your process."</p>
+
+    <p>"Naz Reid had 15 incidents this season with no suspension. At that pace, the suspension is coming. Watch for his tech count in October — by the time he hits double digits again, it becomes a near-certainty. The players who tip over from fines into suspensions are the most predictable DFS rotation events in the game."</p>
+
+    <p>"Suspension minutes are the most mispriced opportunity in DFS. The market adjusts slowly. The data does not."</p>
+  </blockquote>
+  <p class="rg-expert-attribution">RotoGrinders NBA Analyst</p>
+</div>
+
+<!-- CONCLUSION -->
+<h2>The Fine Print Pays Off</h2>
+
+<p>Detroit ran the most chaotic operation in the league — 67 infractions, two players combining for nearly $920,000 in penalties. Charlotte put 82% of its full-season total into a single February night. Phoenix generated 22 incidents from one player alone. These are not statistical quirks. They are behavioral patterns that showed up in projection models every week they occurred.</p>
+
+<p>The teams at the bottom of this list — Utah, San Antonio, Portland — offer predictability. The teams at the top offer something else: rotation disruption you can see coming if you're watching the penalty data in real time.</p>
+
+<p class="rg-closer">The fine print is where the DFS edge lives.</p>
+
+<hr>
+
+<!-- METHODOLOGY -->
+<div class="rg-methodology">
+  <h4>Methodology</h4>
+  <p><strong>What we measured:</strong> All fines and suspensions recorded for the 2025-26 NBA season. The primary metric is Total Amount Lost — the sum of all monetary penalties and salary forfeited due to suspensions, attributed to the team at the time of each infraction.</p>
+  <p><strong>Time period:</strong> Full 2025-26 season, October 2025 through June 2026. Year-over-year comparison uses the 2024-25 season on the same basis.</p>
+  <p><strong>Scoring:</strong> Each infraction is attributed to the team the player represented at the time of the incident. Players who changed teams mid-season have their infractions split accordingly. Coaches are included in team totals but excluded from position breakdowns.</p>
+  <p><strong>Exclusions:</strong> No fines were rescinded prior to data extraction. One suspension (Terry Rozier, Miami) carried no listed dollar amount and is recorded as $0. Appeal status was unavailable in the source and is set to N throughout.</p>
+  <p><strong>Data extracted:</strong> June 18, 2026. Source: Spotrac NBA fines and suspensions database.</p>
+</div>
+
+<!-- SOURCES -->
+<div class="rg-sources">
+  <h4>Sources</h4>
+  <ul>
+    <li>Spotrac — NBA fines and suspensions database (2025-26 and 2024-25 seasons)</li>
+    <li>NBA.com — official team and player reference pages</li>
+    <li>Wikipedia — franchise history and team reference pages</li>
+  </ul>
+</div>
+
+</div>
